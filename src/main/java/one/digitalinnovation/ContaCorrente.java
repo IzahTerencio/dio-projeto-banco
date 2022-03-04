@@ -1,15 +1,9 @@
 package one.digitalinnovation;
 
-public class ContaCorrente{
+public class ContaCorrente extends Conta{
 
-    private int agencia;
-    private int numConta;
-    private double saldo;
-
-    public void sacar(){}
-
-    public void depositar(){}
-
-    public void transferir(){}
+    public ContaCorrente(int ag) {
+        super(ag);
+    }
 
 }
