@@ -4,15 +4,8 @@ public class Main{
 
     public static void main(String[] args){
 
-        /*ContaCorrente cc = new ContaCorrente(1901, new Cliente("Izabella Terencio da Silva Assis"));
-        ContaPoupanca cp = new ContaPoupanca(1901, new Cliente("Izabella Terencio da Silva Assis"));
-
-        cc.imprimirExtratoC();
-        cp.imprimirExtratoP();
-
-        Cliente c = new Cliente();
-        c.setEndereco(new Endereco("Rua Vinte e Seis", 306, "Centro", "Iguatama", "38910-000", "Brasil"));
-        System.out.println(c.getEndereco().getLogradouro());*/
+        Banco bancoTeste = new Banco("Banco Digital Nowbank");
+        bancoTeste.setEndereco(new Endereco("Rua Quatorze", 158, "Centro", "Iguatama", "38910000", "Brasil"));
 
     }
 

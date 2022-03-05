@@ -1,5 +1,7 @@
 package one.digitalinnovation;
 
+import java.util.Objects;
+
 public class Conta{
 
     private static int SEQUENCIA = 1;
@@ -47,7 +49,15 @@ public class Conta{
         this.saldo = saldo;
     }
 
-//---------------------------------------------------MÉTODOS
+    public Cliente getCliente(){
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente){
+        this.cliente = cliente;
+    }
+
+    //---------------------------------------------------MÉTODOS
 
     // Método para retirar determinado valor de uma conta
     public boolean sacar(double valor){
@@ -77,6 +87,30 @@ public class Conta{
             System.err.println("Não foi possível realizar a transferência.");
         }
 
+    }
+
+//---------------------------------------------------------------------------------OVERRIDE
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "agencia=" + agencia +
+                ", numConta=" + numConta +
+                ", saldo=" + saldo +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return agencia == conta.agencia && numConta == conta.numConta && Double.compare(conta.saldo, saldo) == 0 && Objects.equals(cliente, conta.cliente);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(agencia, numConta, saldo, cliente);
     }
 
 }

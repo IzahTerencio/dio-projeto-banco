@@ -40,8 +40,15 @@ public class Cliente{
         this.endereco = endereco;
     }
 
-//---------------------------------------------------------------------------------TO STRING
+//---------------------------------------------------------------------------------OVERRIDE
 
-
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf_cnpj='" + cpf_cnpj + '\'' +
+                ", endereco=" + endereco +
+                '}';
+    }
 
 }

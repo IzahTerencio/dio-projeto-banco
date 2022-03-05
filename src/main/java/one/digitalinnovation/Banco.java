@@ -1,7 +1,9 @@
 package one.digitalinnovation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Banco{
 
@@ -45,7 +47,84 @@ public class Banco{
 
 //---------------------------------------------------------------------------------MÉTODOS ESPECÍFICOS
 
+    // Método para adicionar uma nova conta de fato ao banco, por meio de uma lista
+    public boolean adicionarConta(Conta conta){
+        int tamLista = contas.size();
+        contas.add(conta);
+
+        if(contas.size() > tamLista){
+            return(true);
+        } else{
+            return(false);
+        }
+    }
+
+    // Método para remover uma conta da listagem do banco
+    public boolean removerConta(Conta conta){
+
+        if(contas.isEmpty()){
+            System.err.println("Erro remocao: Nao ha dados disponiveis.");
+            return(false);
+        } else{
+
+            int indice = conta.getNumConta();
+            indice -= 1;
+            contas.remove(indice);
+
+            if(contas.size() < (indice+1)){
+                return(true);
+            } else{
+                return(false);
+            }
+
+        }
+
+    }
+
+    // Método que busca e retorna uma conta específica do banco
+    public Conta getConta(Conta conta){
+
+        if(contas.isEmpty()){
+            System.err.println("Nao ha dados a serem exibidos.");
+        } else{
+
+            int indice = conta.getNumConta();
+            Conta contaAux;
+            indice -= 1; // O array começa com índice 0, então a conta estará uma posição anterior em relação ao seu número
+            contaAux = contas.get(indice);
+
+            return(contaAux);
+        }
+        return null;
+
+    }
+
+    // Método que retorna uma listagem dos clientes do banco
     public void listarClientes(){
+
+        if(contas.isEmpty()){
+            System.err.println("Nao ha dados armazenados");
+        } else{
+
+            //List<Conta> auxiliar = new ArrayList<>();
+            Set<Conta> auxSet = new HashSet<>();
+
+            for(int j=0; j<(contas.size()-1); j++){
+                auxSet.add(contas.get(j));
+            }
+
+            int i = 0;
+            Conta auxiliar[] = new Conta[auxSet.size()];
+            for(Conta elemento:auxSet){
+                auxiliar[i++] = elemento;
+            }
+
+            // Exibindo os elementos do array
+            for(int j=0; j<(auxSet.size()); j++){
+                System.out.println(String.format("CLIENTE #", (j+1), auxiliar[j].getCliente()));
+            }
+
+        }
 
     }
 
